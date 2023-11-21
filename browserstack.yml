@@ -1,0 +1,20 @@
+userName: islamlotfy_k46bJN
+accessKey: pDdp4QSiKchgBVRtyebt
+framework: testng
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: Chrome
+    browserVersion: 103.0
+  - os: Windows
+    osVersion: 10
+    browserName: Firefox
+    browserVersion: 102.0
+#  - os: OS X
+#    osVersion: Big Sur
+#    browserName: Safari
+#    browserVersion: 14.1
+parallelsPerPlatform: 1
+browserstackLocal: true
+buildName: browserstack-build-1
+projectName: BrowserStack Sample

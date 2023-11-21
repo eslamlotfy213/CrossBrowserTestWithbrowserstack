@@ -1,0 +1,47 @@
+create maven project
+add testNg and selenuim java
+create account on browser stack
+open .https://automate.browserstack.com/dashboard/v2/quick-start/get-started
+open https://github.com/browserstack/testng-browserstack
+add dependency to read yml file
+<dependency>
+    <groupId>com.browserstack</groupId>
+    <artifactId>browserstack-java-sdk</artifactId>
+    <version>LATEST</version>
+    <scope>compile</scope>
+</dependency>
+
+open pom.xml and configure to integrate maven with testng
+   <build>
+           <plugins>
+               <plugin>
+                   <artifactId>maven-dependency-plugin</artifactId>
+                   <executions>
+                       <execution>
+                           <id>getClasspathFilenames</id>
+                           <goals>
+                               <goal>properties</goal>
+                           </goals>
+                       </execution>
+                   </executions>
+               </plugin>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-surefire-plugin</artifactId>
+                   <version>3.0.0-M5</version>
+                   <configuration>
+                       <suiteXmlFiles>
+                           <suiteXmlFile>testng.xml</suiteXmlFile>
+                       </suiteXmlFiles>
+                       <!--suppress UnresolvedMavenProperty -->
+                       <argLine>
+                           -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                       </argLine>
+                   </configuration>
+               </plugin>
+
+           </plugins>
+       </build>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+to run mvn test
